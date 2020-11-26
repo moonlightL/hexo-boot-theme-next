@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html class="theme-next use-motion" lang="zh-Hans" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{theme/next/layout}">
+<head>
+    <meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="#222">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>标签 | [[${#servletContext.getAttribute('configMap')['blog_author']}]]</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+<div layout:fragment="content">
+    <div id="content" class="content">
+        <div id="posts" class="posts-expand">
+            <div class="post-block page">
+                <header class="post-header">
+                    <h2 class="post-title" itemprop="name headline">标签</h2>
+                </header>
+                <div class="post-body">
+                    <div class="tag-cloud">
+                        <div class="tag-cloud-title">
+                            目前共计 [[${count}]] 个标签
+                        </div>
+                        <div class="tag-cloud-tags">
+                            <a th:href="@{'/tags/' + ${tag.name} + '/'}" th:style="${tag.style}" th:each="tag : ${tagList}" th:text="${tag.name}">Ant</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "next",
+  "remark": "Next主题",
+  "extension": [
+    {
+      "key": "pageSize",
+      "value": "10",
+      "type": "input",
+      "label": "页面大小"
+    },
+    {
+      "key": "scheme",
+      "value": "Muse",
+      "option": "Muse,Mist,Pisces,Gemini",
+      "type": "select",
+      "label": "scheme"
+    },
+    {
+      "key": "commentShowType",
+      "value": "singleRow",
+      "type": "select",
+      "option": "singleRow,multiRow",
+      "label": "评论列表展示"
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+.notification_success {
+    border-radius: .25rem;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.notification_info {
+    border-radius: .25rem;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+
+.notification_warning {
+    border-radius: .25rem;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+
+.notification_error {
+    border-radius: .25rem;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.comment-container {
+    margin-top: 10px !important;
+}
+
+.comment-data-body .comment-data-body-content textarea {
+    width: calc(100% - 42px);
+}
+
+.comment-data-body .comment-data-body-btns .emoji-container .emoji-container-btn {
+    margin-top: 14px;
+    font-size: 1.25rem !important;
+}
+
+.comment-data-body .comment-data-body-btns .emoji-container .emoji-content {
+    left: 0 !important;
+}
+
+.comment-data-body .comment-data-body-btns .input-container {
+    top: 4px;
+}
+
+.emoji-content .emoji-content-items ul li {
+    width: 22px;
+    height: 22px;
+}
+
+.comment-data-body .comment-data-body-btns .send-message-btn {
+    background-color: #000 !important;
+    border: 1px solid #000 !important;
+    padding: 4px !important;
+}
+
+.comment-data-body .comment-data-body-btns .send-message-btn:hover {
+    background-color: #222 !important;
+    color: #fff;
+}
+
+.comment-container .comment-list .comment-list-item .date {
+    background-color: #000 !important;
+    padding: 0 3px !important;
+}
+
+.comment-list .comment-list-page-bar ul li {
+    background-color: #000 !important;
+}
+
+.comment-list .comment-list-page-bar ul li {
+    background-color: #e4e7ea !important;
+
+}
+
+.comment-list .comment-list-page-bar ul li a {
+    color: #fff;
+    width: 20px !important;
+    height: 20px !important;
+    line-height: 20px !important;
+}
+
+.comment-list .comment-list-page-bar ul li.active {
+    background-color: #000 !important;
+}
+
+.comment-list .comment-list-page-bar ul li a:hover {
+    background-color: #000 !important;
+}
+
+.posts-expand .post-body ul li {
+    list-style: none;
+}
+
+.use-motion .post-block, .use-motion .pagination, .use-motion .comments {
+    opacity: 1 !important;
+}
+
+.post-copyright {
+    list-style-type: none;
+    border-left: 3px solid red;
+    padding-left: 10px;
+}
+
+.real-time-search-container .real-time-search-body .highlight_list {
+    width: 492px !important;
+}
