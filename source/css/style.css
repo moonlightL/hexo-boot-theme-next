@@ -121,3 +121,39 @@
 .real-time-search-container .real-time-search-body .highlight_list {
     width: 492px !important;
 }
+
+.shareContainer {
+    position: relative;
+    height: 50px;
+    margin-bottom: 8px;
+}
+
+.shareContainer .btns {
+    position: absolute;
+    z-index: 9999;
+}
+
+.social-share {
+    position: absolute;
+    display: inline-block;
+    opacity: 0;
+    transition: all .5s;
+    top: 0;
+    left: 0;
+}
+
+.share-open {
+    opacity: 1;
+    top: -5px;
+    left: 188px;
+}
+
+@media (max-width: 767px) {
+    .share-open {
+        opacity: 1;
+        top: 36px;
+        width: 100%;
+        left: 32px;
+        transform: scale(0.8);
+    }
+}

@@ -75,8 +75,32 @@
                         </div>
                     </header>
 
+                    <div class="post-body" th:if="${post.reprint == true}" style="background: #dff0d8; color: #333; padding: 5px 10px; margin-bottom: 2rem;font-size: 14px;">
+                        <ul>
+                            <li>
+                                <strong>原作者:</strong> <b>[[${post.author}]]</b>
+                            </li>
+                            <li>
+                                <strong>原文链接:</strong> <a class="alert-link" th:href="@{${post.reprintLink}}" target="_blank" th:text="${post.reprintLink}"></a>
+                            </li>
+                        </ul>
+                    </div>
+
                     <!-- 正文 -->
                     <div class="post-body" itemprop="articleBody" th:utext="${md.md2html(post.id, post.content, 2)}"></div>
+
+                    <div id="share" class="shareContainer">
+                        <div class="btns">
+                            <button type="button" class="btn btn-default" id="priseBtn"><i class="fa fa-thumbs-o-up"></i> <span id="prizeCount">[[${post.praiseNum}]]</span></button>
+                            <button type="button" class="btn btn-default" id="shareOpenBtn"><i class="fa fa-share-square-o"></i> 分享</button>
+                        </div>
+                        <div id="shareBtns" class="social-share" data-initialized="true">
+                            <a href="#" class="social-share-icon icon-weibo"></a>
+                            <a href="#" class="social-share-icon icon-qq"></a>
+                            <a href="#" class="social-share-icon icon-qzone"></a>
+                            <a href="#" class="social-share-icon icon-wechat"></a>
+                        </div>
+                    </div>
 
                     <div>
                         <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
@@ -121,7 +145,7 @@
                     <footer class="post-footer">
                         <div class="post-tags">
                             <div class="tags" th:if="${#strings.isEmpty(post.tags) == false}">
-                                <a th:href="@{'/tags/'+${tag}+'/'}" rel="tag" th:each="tag,status : ${#strings.arraySplit(post.tags, ',')}" th:text="${tag}"></a>
+                                <i class="fa fa-tags"></i> <a th:href="@{'/tags/'+${tag}+'/'}" rel="tag" th:each="tag,status : ${#strings.arraySplit(post.tags, ',')}" th:text="${tag}"></a>
                             </div>
                         </div>
                         <div class="post-nav">
