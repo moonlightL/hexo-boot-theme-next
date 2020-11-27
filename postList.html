@@ -41,20 +41,36 @@
             </div>
         </div>
 
-        <nav class="pagination" th:if="${#lists.isEmpty(pageInfo.list) eq false}">
+        <nav class="pagination" th:if="${type == '分类'}">
             <span th:if="${pageInfo.hasPreviousPage}">
-                <a class="extend prev" rel="prev" th:href="@{${pageInfo.pageNum-1} == 1 ? '/archives/' : '/archives/page/' + ${pageInfo.pageNum-1}+'/'}" ><i class="fa fa-angle-left"></i></a>
+                <a class="extend prev" rel="prev" th:href="@{${pageInfo.pageNum-1} == 1 ? '/categories/' + ${name} + '/': '/categories/' + ${name} + '/page/' + ${pageInfo.pageNum-1}+'/'}"><i class="fa fa-angle-left"></i></a>
             </span>
             <span th:each="pageNum : ${pageInfo.navigatepageNums}">
                 <span th:if="${pageNum == pageInfo.pageNum}">
                     <span class="page-number current" th:text="${pageNum}">1</span>
                 </span>
                 <span th:if="${pageNum != pageInfo.pageNum}">
-                    <a class="page-number" th:href="@{${pageNum} == 1 ? '/archives/' : '/archives/page/' + ${pageNum}+'/'}" th:text="${pageNum}">2</a>
+                    <a class="page-number" th:href="@{${pageNum} == 1 ? '/categories/' + ${name} + '/': '/categories/' + ${name} + '/page/' + ${pageNum}+'/'}" th:text="${pageNum}">2</a>
                 </span>
             </span>
             <span th:if="${pageInfo.hasNextPage}">
-                <a class="extend next" rel="next" th:href="@{'/archives/page/' + ${pageInfo.pageNum+1}+'/'}" ><i class="fa fa-angle-right"></i></a>
+                <a class="extend next" rel="next" th:href="@{'/categories/' + ${name} + '/page/' +  ${pageInfo.pageNum+1}+'/'}" ><i class="fa fa-angle-right"></i></a>
+            </span>
+        </nav>
+        <nav class="pagination" th:if="${type == '标签'}">
+            <span th:if="${pageInfo.hasPreviousPage}">
+                <a class="extend prev" rel="prev" th:href="@{${pageInfo.pageNum-1} == 1 ? '/tags/' + ${name} + '/': '/tags/' + ${name} + '/page/' + ${pageInfo.pageNum-1}+'/'}"><i class="fa fa-angle-left"></i></a>
+            </span>
+            <span th:each="pageNum : ${pageInfo.navigatepageNums}">
+                <span th:if="${pageNum == pageInfo.pageNum}">
+                    <span class="page-number current" th:text="${pageNum}">1</span>
+                </span>
+                <span th:if="${pageNum != pageInfo.pageNum}">
+                    <a class="page-number" th:href="@{${pageNum} == 1 ? '/tags/' + ${name} + '/': '/tags/' + ${name} + '/page/' + ${pageNum}+'/'}" th:text="${pageNum}">2</a>
+                </span>
+            </span>
+            <span th:if="${pageInfo.hasNextPage}">
+                <a class="extend next" rel="next" th:href="@{'/tags/' + ${name} + '/page/' +  ${pageInfo.pageNum+1}+'/'}" ><i class="fa fa-angle-right"></i></a>
             </span>
         </nav>
 
