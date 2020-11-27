@@ -49,7 +49,7 @@
                               </span>
                                 <span class="post-meta-item-text">分类于</span>
                                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                                  <a th:href="@{'/categories/' + ${post.categoryName}}" itemprop="url" rel="index">
+                                  <a th:href="@{'/categories/' + ${post.categoryName} + '/'}" itemprop="url" rel="index">
                                     <span itemprop="name" th:text="${post.categoryName}"></span>
                                   </a>
                                 </span>
@@ -120,7 +120,9 @@
 
                     <footer class="post-footer">
                         <div class="post-tags">
-<!--                            <a th:each="tagName : ${post.tagNameList}" th:href="@{'/tags/' + ${tagName} + '/'}" rel="tag"># [[${tagName}]]</a>-->
+                            <div class="tags" th:if="${#strings.isEmpty(post.tags) == false}">
+                                <a th:href="@{'/tags/'+${tag}+'/'}" rel="tag" th:each="tag,status : ${#strings.arraySplit(post.tags, ',')}" th:text="${tag}"></a>
+                            </div>
                         </div>
                         <div class="post-nav">
                             <div class="post-nav-next post-nav-item" th:if="${#objects.nullSafe(nextPost, null)}">
