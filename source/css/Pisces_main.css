@@ -1194,6 +1194,11 @@ pre .javascript .function {
   margin: 0 10px;
   list-style: none;
 }
+.menu .menu-item .second-menu {
+  list-style-type: none;
+  padding-left: 1rem;
+}
+
 @media screen and (max-width: 767px) {
   .menu .menu-item {
     margin-top: 10px;

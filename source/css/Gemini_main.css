@@ -1216,6 +1216,12 @@ pre .javascript .function {
 .menu .menu-item .fa {
   margin-right: 5px;
 }
+
+.menu .menu-item .second-menu {
+  list-style-type: none;
+  padding-left: 1rem;
+}
+
 .use-motion .menu-item {
   opacity: 0;
 }
@@ -3241,3 +3247,4 @@ pre .javascript .function {
     margin: 8px 0 0;
   }
 }
+

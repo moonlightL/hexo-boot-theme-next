@@ -84,40 +84,19 @@
                         </div>
                             <nav class="site-nav">
                                 <ul id="menu" class="menu">
-                                    <li class="menu-item menu-item-home">
-                                        <a href="/" rel="section">
-                                            <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-                                            首页
+                                    <li th:each="nav : ${#servletContext.getAttribute('firstNav')}" th:class="${currentNav.code eq nav.code ? 'menu-item menu-item-active' : 'menu-item'}">
+                                        <a th:href="@{${#lists.isEmpty(nav.children) ? nav.link : '#'}}">
+                                            <i th:class="${nav.icon}"></i> [[${nav.name}]]
                                         </a>
-                                    </li>
-                                    <li class="menu-item menu-item-archives">
-                                        <a href="/archives/" rel="section">
-                                            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-                                            归档
-                                        </a>
-                                    </li>
-                                    <li class="menu-item menu-item-categories">
-                                        <a href="/categories/" rel="section">
-                                            <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
-                                            分类
-                                        </a>
-                                    </li>
-                                    <li class="menu-item menu-item-tags">
-                                        <a href="/tags/" rel="section">
-                                            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-                                            标签
-                                        </a>
-                                    </li>
-                                    <li class="menu-item menu-item-about">
-                                        <a href="/about/" rel="section">
-                                            <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-                                            关于
-                                        </a>
+                                        <ul class="second-menu" th:if="${#lists.isEmpty(nav.children) == false}">
+                                            <li class="item" th:each="child : ${nav.children}">
+                                                <a th:href="@{${child.link}}"><i th:class="${child.icon}"></i> [[${child.name}]]</a>
+                                            </li>
+                                        </ul>
                                     </li>
                                     <li class="menu-item menu-item-search">
                                         <a href="javascript:void(0)" rel="section" data-real-time-search>
-                                            <i class="menu-item-icon fa fa-fw fa-search"></i> <br>
-                                            搜索
+                                            <i class="menu-item-icon fa fa-fw fa-search"></i> 搜索
                                         </a>
                                     </li>
                                 </ul>

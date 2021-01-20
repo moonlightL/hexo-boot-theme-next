@@ -1190,9 +1190,31 @@ pre .javascript .function {
   text-align: center;
 }
 .menu .menu-item {
+  position: relative;
   display: inline-block;
   margin: 0 10px;
   list-style: none;
+}
+.menu .menu-item .second-menu {
+  position: absolute;
+  width: 100%;
+  top: 24px;
+  left: 0;
+  text-align: center;
+  box-shadow: 0 1px 7px 1px #e1e1e1;
+  padding: 0;
+  margin: 0;
+  display: none;
+  z-index: 9;
+  list-style-type: none;
+}
+
+.menu .menu-item .second-menu a {
+  padding: 0 !important;
+}
+
+.menu .menu-item:hover .second-menu {
+  display: block;
 }
 @media screen and (max-width: 767px) {
   .menu .menu-item {

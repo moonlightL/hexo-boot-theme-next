@@ -1194,6 +1194,27 @@ pre .javascript .function {
   margin: 0 10px;
   list-style: none;
 }
+.menu .menu-item .second-menu {
+  position: absolute;
+  width: 150%;
+  top: 24px;
+  left: -10px;
+  text-align: center;
+  box-shadow: 0 1px 7px 1px #e1e1e1;
+  padding: 0;
+  margin: 0;
+  display: none;
+  z-index: 9;
+  list-style-type: none;
+}
+
+.menu .menu-item .second-menu a {
+  padding: 0 !important;
+}
+
+.menu .menu-item:hover .second-menu {
+  display: block;
+}
 @media screen and (max-width: 767px) {
   .menu .menu-item {
     margin-top: 10px;
