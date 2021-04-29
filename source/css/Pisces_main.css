@@ -1194,9 +1194,11 @@ pre .javascript .function {
   margin: 0 10px;
   list-style: none;
 }
+
 .menu .menu-item .second-menu {
   list-style-type: none;
-  padding-left: 1rem;
+  padding-left: 5px;
+  background: #fafcfd;
 }
 
 @media screen and (max-width: 767px) {
@@ -3115,4 +3117,14 @@ pre .javascript .function {
   .post-body {
     text-align: justify;
   }
+}
+
+.real-time-search-container .real-time-search-body .highlight_list {
+  margin-top: 0!important;
+}
+
+.menu-arrow {
+  display: inline-block;
+  position: absolute;
+  right: 8px;
 }

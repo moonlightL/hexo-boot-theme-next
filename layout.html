@@ -87,6 +87,9 @@
                                     <li th:each="nav : ${#servletContext.getAttribute('firstNav')}" th:class="${currentNav.code eq nav.code ? 'menu-item menu-item-active' : 'menu-item'}">
                                         <a th:href="@{${#lists.isEmpty(nav.children) ? nav.link : '#'}}">
                                             <i th:class="${nav.icon}"></i> [[${nav.name}]]
+                                            <span th:if="${#lists.isEmpty(nav.children) == false}" class="menu-arrow">
+                                                <i class="fa fa-caret-down"></i>
+                                            </span>
                                         </a>
                                         <ul class="second-menu" th:if="${#lists.isEmpty(nav.children) == false}">
                                             <li class="item" th:each="child : ${nav.children}">
@@ -263,12 +266,12 @@
                 listUrl: "/postList.json"
             });
         </script>
-        <span th:if="${isDetail == true}">
+        <span th:if="${isDetail}">
             <script type="text/javascript" th:src="@{${prefix} + '/source/js/src/scrollspy.js?v=5.1.4'}"></script>
             <script type="text/javascript" th:src="@{${prefix} + '/source/js/src/post-details.js?v=5.1.4'}"></script>
             <script type='text/javascript' th:src="@{'/admin/assets/js/plugins/highlightjs/highlight.pack.js'}"></script>
             <script type='text/javascript' th:src="@{${prefix} + '/source/js/overshare/js/social-share.min.js'}"></script>
-            <script type='text/javascript' th:src="@{'/admin/assets/js/plugins/tocjs/toc.js'}"></script>
+            <script type='text/javascript' th:src="@{${prefix} + '/source/js/toc.js'}"></script>
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
                     document.querySelectorAll('figure span').forEach(function(block) {

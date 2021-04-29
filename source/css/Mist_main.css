@@ -1210,7 +1210,8 @@ pre .javascript .function {
 }
 
 .menu .menu-item .second-menu a {
-  padding: 0 !important;
+  padding: .3rem 0 !important;
+  background: #fff;
 }
 
 .menu .menu-item:hover .second-menu {
