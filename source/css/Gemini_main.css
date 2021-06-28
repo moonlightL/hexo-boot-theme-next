@@ -1221,6 +1221,7 @@ pre .javascript .function {
   list-style-type: none;
   padding-left: 5px;
   background: #fafcfd;
+  display: none;
 }
 
 .use-motion .menu-item {

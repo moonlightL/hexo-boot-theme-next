@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html class="theme-next use-motion" lang="zh-Hans" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{theme/next/layout}">
+<head>
+    <meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="#222">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>归档 | [[${#servletContext.getAttribute('configMap')['blog_name']}]]</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+<div layout:fragment="content">
+    <div id="content" class="content">
+
+        <div class="post-block archive">
+            <div id="posts" class="posts-collapse">
+                <span class="archive-move-on"></span>
+
+                <span class="archive-page-counter">
+                    <span> 目前发布 [[${pageInfo.total}]] 条动态</span>
+                </span>
+
+                <article class="dynamic-item" th:each="dynamic : ${pageInfo.list}" th:style="'--block-color:' + ${dynamic.color} ">
+                    <header class="dynamic-info">
+                        <div class="content" th:utext="${dynamic.content}"></div>
+                        <div class="post-meta">
+                            <time class="post-time" itemprop="dateCreated">
+                                [[${dynamic.timeDesc}]]
+                            </time>
+                        </div>
+                    </header>
+                </article>
+            </div>
+        </div>
+
+        <nav class="pagination" th:if="${pageInfo.total > 0}">
+            <span th:if="${pageInfo.hasPreviousPage}">
+                <a class="extend prev" rel="prev" th:href="@{${pageInfo.pageNum-1} == 1 ? '/dynamics/' : '/dynamics/page/' + ${pageInfo.pageNum-1}+'/'}" ><i class="fa fa-angle-left"></i></a>
+            </span>
+            <span th:each="pageNum : ${pageInfo.navigatepageNums}">
+                <span th:if="${pageNum == pageInfo.pageNum}">
+                    <span class="page-number current" th:text="${pageNum}">1</span>
+                </span>
+                <span th:if="${pageNum != pageInfo.pageNum}">
+                    <a class="page-number" th:href="@{${pageNum} == 1 ? '/dynamics/' : '/dynamics/page/' + ${pageNum}+'/'}" th:text="${pageNum}">2</a>
+                </span>
+            </span>
+            <span th:if="${pageInfo.hasNextPage}">
+                <a class="extend next" rel="next" th:href="@{'/dynamics/page/' + ${pageInfo.pageNum+1}+'/'}" ><i class="fa fa-angle-right"></i></a>
+            </span>
+        </nav>
+
+    </div>
+</div>
+</body>
+</html>
