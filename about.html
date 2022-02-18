@@ -11,7 +11,6 @@
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <title>关于 | [[${#servletContext.getAttribute('configMap')['blog_name']}]]</title>
-    <link rel="stylesheet" th:href="@{'/admin/assets/custom/jquery-comment/jquery-comment.css'}">
     <link th:href="@{${prefix} + '/source/css/style.css'}" rel="stylesheet" type="text/css">
 </head>
 
@@ -41,19 +40,10 @@
                     </div>
                 </div>
             </div>
-            <!-- 留言 -->
-            <div id="comment-container" class="comment-container"></div>
+            <!-- 评论 -->
+            <div th:replace="~{theme/next/common :: comment}"></div>
         </div>
     </div>
-    <script th:src="@{${prefix} + '/source/js/jquery.min.js'}"></script>
-    <script th:src="@{'/admin/assets/custom/jquery-comment/jquery.cookie.js'}"></script>
-    <script th:src="@{'/admin/assets/custom/jquery-comment/jquery-comment.js'}"></script>
-    <script th:src="@{${prefix} + '/source/js/about.js'}"></script>
-    <script type="text/javascript" th:inline="javascript">
-        $(function () {
-            GuestBookManager.init();
-        });
-    </script>
 </div>
 </body>
 </html>

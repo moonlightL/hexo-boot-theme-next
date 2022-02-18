@@ -8,7 +8,6 @@
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <title th:text="${#servletContext.getAttribute('configMap')['blog_name']} + '|' + ${post.title}"></title>
-    <link rel="stylesheet" th:href="@{'/admin/assets/custom/jquery-comment/jquery-comment.css'}">
     <link th:href="@{${prefix} + '/source/css/style.css'}" rel="stylesheet" type="text/css">
 </head>
 
@@ -166,21 +165,16 @@
                     </footer>
                 </div>
 
-                <div id="comment-container" class="comment-container"></div>
+                <!-- 评论 -->
+                <script type="text/javascript" th:inline="javascript">
+                    window.canComment = [[${post.comment}]];
+                </script>
+                <div th:replace="~{theme/next/common :: comment}"></div>
 
             </article>
             <div class="post-spread"></div>
         </div>
     </div>
-    <script type='text/javascript' th:src="@{${prefix} + '/source/js/jquery.min.js'}"></script>
-    <script th:src="@{'/admin/assets/custom/jquery-comment/jquery.cookie.js'}"></script>
-    <script th:src="@{'/admin/assets/custom/jquery-comment/jquery-comment.js'}"></script>
-    <script th:src="@{${prefix} + '/source/js/detail.js'}"></script>
-    <script type="text/javascript" th:inline="javascript">
-        $(function () {
-            CommentManager.init([[${post.id}]], [[${post.comment}]]);
-        });
-    </script>
 </div>
 </body>
 </html>
