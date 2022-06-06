@@ -22,10 +22,10 @@
                 <header class="post-header">
                     <h2 class="post-title" itemprop="name headline">友链</h2>
                 </header>
-                <div class="post-body">
+                <div class="post-body friend-link-body">
                     <h3 class="friend-link-title">常用网址</h3>
                     <div class="row">
-                        <div class="col-md-4" th:each="link,iterStat: ${webSiteList}">
+                        <div class="col-md-6" th:each="link,iterStat: ${webSiteList}">
                             <div class="friend-link-item">
                                 <img class="lazyload image" th:if="${#strings.isEmpty(link.logo) == false}" th:data-original="@{${link.logo}}">
                                 <span th:if="${#strings.isEmpty(link.logo)}">
@@ -42,7 +42,7 @@
 
                     <h3 class="friend-link-title">博主网址</h3>
                     <div class="row">
-                        <div class="col-md-4" th:each="link,iterStat: ${bloggerList}">
+                        <div class="col-md-6" th:each="link,iterStat: ${bloggerList}">
                             <div class="friend-link-item">
                                 <img class="lazyload image" th:if="${#strings.isEmpty(link.logo) == false}" th:data-original="@{${link.logo}}">
                                 <span th:if="${#strings.isEmpty(link.logo)}">
@@ -59,6 +59,8 @@
                 </div>
             </div>
         </div>
+        <!-- 评论 -->
+        <div th:replace="~{theme/next/common :: comment(true)}"></div>
     </div>
 </div>
 </body>

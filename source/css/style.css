@@ -9,6 +9,7 @@
     color: #fff;
     font-size: 12px;
     line-height: 24px;
+    transform: translateY(-2px);
 }
 
 h3.friend-link-title {
@@ -21,11 +22,11 @@ h3.friend-link-title {
     padding: 1rem;
     transition: all .3s;
     border-radius: 4px;
-    box-shadow: 0 1px 7px 1px #f1f1f1;
+    border: 1px solid #ddd;
 }
 
 .friend-link-item:hover {
-    box-shadow: 0 1px 7px 1px #f1f1f1;
+    box-shadow: 0 1px 7px 1px #aaa;
 }
 
 .friend-link-item .bgColor {
@@ -58,6 +59,115 @@ h3.friend-link-title {
 .friend-link-item .remark {
     text-align: left;
     color: var(--text-color)
+}
+
+.album-body .descr {
+    text-align: center;
+}
+
+.album-item {
+    width: 100%;
+    height: 100%;
+    text-align:center;
+    background-size: cover;
+    margin-bottom: 2em;
+    transition: all .3s;
+    box-shadow: 0 0 5px var(--shadow-color);
+    border-radius: 4px;
+}
+
+.album-item a {
+    color: #888;
+}
+
+.album-item a:hover {
+    color: #ddd;
+}
+
+.album-item a img {
+    width: 100%;
+    height:200px;
+    object-fit: cover;
+}
+
+.album-detail-item a img {
+    width: 100%;
+    height:150px;
+    object-fit: cover;
+}
+
+.album-item .descr {
+    padding-top: 1rem;
+}
+
+.album-detail-item {
+    position: relative;
+    margin: 1.5rem auto;
+    height: 100%;
+    box-shadow: 0 1px 3px 1px var(--shadow-color);
+}
+
+.album-detail-item a .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0 ,0, 0, .2);
+    width: 100%;
+    height: 150px;
+    opacity: 0;
+    transition: all .5s;
+}
+
+.album-detail-item a:hover .mask {
+    opacity: 1;
+}
+
+.album-detail-item a .mask i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.album-detail-item .name {
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.video-mask {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .7);
+    z-index: 999;
+}
+
+.video-self {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 620px;
+    height: 420px;
+    z-index: 1000;
+}
+
+.video-close {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    top: 12px;
+    right: 12px;
+    z-index: 1000;
+    cursor: pointer;
+    color: #fff;
+    font-size: 22px;
 }
 
 .notification_success {
@@ -289,4 +399,71 @@ h3.friend-link-title {
 
 .show {
     display: block !important;
+}
+
+/**评论区**/
+.hb-comment {
+    position: relative;
+    transform: translateY(10px)!important;
+}
+
+.hb-w-body .hb-w-body-item .avatar {
+   transform: translateX(-12px);
+}
+
+.hb-w-body .hb-w-body-item .change_avatar {
+    transform: translateX(12px);
+    text-decoration: none;
+}
+
+.hb-w-body .hb-comment-info .label {
+    padding: 0 4px;
+}
+
+.hb-w-body .hb-comment-help button {
+    padding: 0 1rem !important;
+    font-size: 14px;
+}
+
+.hb-w-body .hb-comment-help .emoji-panel li {
+    padding: 0 !important;
+}
+
+.hb-comment .content img {
+    margin: 0!important;
+}
+
+.hb-w-body .hb-comment-help .emoji-panel .emoji-ul.active {
+    padding-left: 6px;
+}
+
+.hb-r-body .hb-r-pagination ul li a,
+.hb-r-body .hb-r-pagination ul li a:active {
+    padding: 0!important;
+}
+
+.row {
+    display: flex;
+    flex-flow: wrap;
+}
+
+.col-md-4 {
+    width: calc(30% - 2rem);
+    margin: 0 1rem;
+}
+
+.col-md-6 {
+    width: calc(50% - 2rem);
+    margin: 0 1rem;
+}
+
+@media (max-width: 767px) {
+    .row {
+        display: unset;
+    }
+
+    .col-md-4,.col-md-6 {
+        width: 100%;
+        margin: 0;
+    }
 }

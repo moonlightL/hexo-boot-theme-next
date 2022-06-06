@@ -27,7 +27,7 @@
                 </span>
 
                 <article class="dynamic-item" th:each="dynamic : ${pageInfo.list}" th:style="'--block-color:' + ${dynamic.color} ">
-                    <header class="dynamic-info">
+                    <header class="dynamic-info post-header">
                         <div class="content" th:utext="${dynamic.content}"></div>
                         <div class="post-meta">
                             <time class="post-time" itemprop="dateCreated">

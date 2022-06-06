@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html class="theme-next use-motion" lang="zh-Hans" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{theme/next/layout}">
+<head>
+    <meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="#222">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>专辑 | [[${#servletContext.getAttribute('configMap')['blog_name']}]]</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+<div layout:fragment="content">
+    <div id="content" class="content">
+        <div id="posts" class="posts-expand">
+            <div class="post-block page">
+                <header class="post-header">
+                    <h2 class="post-title" itemprop="name headline">专辑</h2>
+                </header>
+                <div class="post-body album-body">
+                    <div class="category-all-page">
+                        <div class="category-all-title">
+                            目前共计 [[${albumNum}]] 张专辑
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6" th:each="album,iterStat: ${albumList}">
+                                <div class="album-item animate-box">
+                                    <a data-pjax th:href="@{'/albumDetail/' + ${album.id} + '/'}">
+                                        <img th:data-original="@{${album.coverUrl}}" class="lazyload album_cover">
+                                        <div class="descr">
+                                            <span th:if="${album.visitType == 0}"><i class="fa fa-lock"></i></span> [[${album.name}]]<span> ([[${album.detailNum}]])</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div th:if="${albumNum == 0}" th:style="'text-align:center;'" th:text="'~~作者偷懒，没有创建专辑栏目~~'"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

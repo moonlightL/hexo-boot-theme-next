@@ -1,8 +1,8 @@
-function tocHelper(className) {
+function tocHelper(el, className) {
     let headingsMaxDepth = 6;
     let arr = ['h2', 'h3', 'h4', 'h5', 'h6'];
     let headingsSelector = arr.slice(0, headingsMaxDepth).join(',');
-    let headings = $(headingsSelector);
+    let headings = $("#" + el).find(headingsSelector);
 
     if (!headings.length) return '';
 

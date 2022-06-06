@@ -90,7 +90,7 @@
 
                     <div id="share" class="shareContainer">
                         <div class="btns">
-                            <button type="button" class="btn btn-default" id="priseBtn"><i class="fa fa-thumbs-o-up"></i> <span id="prizeCount">[[${post.praiseNum}]]</span></button>
+                            <button type="button" class="btn btn-default" id="priseBtn" th:data-id="${post.id}"><i class="fa fa-thumbs-o-up"></i>&nbsp;<span id="prizeCount">[[${post.praiseNum}]]</span></button>
                             <button type="button" class="btn btn-default" id="shareOpenBtn"><i class="fa fa-share-square-o"></i> 分享</button>
                         </div>
                         <div id="shareBtns" class="social-share" data-initialized="true">
@@ -169,7 +169,7 @@
                 <script type="text/javascript" th:inline="javascript">
                     window.canComment = [[${post.comment}]];
                 </script>
-                <div th:replace="~{theme/next/common :: comment}"></div>
+                <div th:replace="~{theme/next/common :: comment(${post.comment})}"></div>
 
             </article>
             <div class="post-spread"></div>
